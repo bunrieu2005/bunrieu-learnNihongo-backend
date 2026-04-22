@@ -24,4 +24,7 @@ public class CharacterCard {
 
     @Column(name = "row_group", nullable = false, length = 10)
     private String rowGroup;//a,ka,sa,ta
+
+    @Column(name = "row_name", length = 20)
+    private String rowName;//あ行, か行, さ行, etc.
 }

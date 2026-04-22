@@ -17,4 +17,8 @@ public interface CharacterCardRepo extends JpaRepository<CharacterCard, Long> {
     //ramdom select n wwrong answers
     @Query(value = "SELECT romaji FROM character_cards WHERE type = :type AND romaji != :correctRomaji ORDER BY RAND() LIMIT 3", nativeQuery = true)
     List<String> findWrongAnswers(@Param("type") String type, @Param("correctRomaji") String correctRomaji);
+    
+    // Get 1 random character by rowName
+    @Query(value = "SELECT * FROM character_cards WHERE row_name = :rowName ORDER BY RAND() LIMIT 1", nativeQuery = true)
+    CharacterCard findRandomByRowName(@Param("rowName") String rowName);
 }

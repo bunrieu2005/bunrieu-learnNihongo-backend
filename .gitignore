@@ -1,1 +1,32 @@
+.DS_Store
 .idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse/STS
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Maven/Gradle build outputs
+**/target/
+**/build/
+out/
+
+# Logs and runtime files
+logs/
+*.log
+*.pid
+
+# Env/Secrets (do not commit real secrets)
+.env
+.env.*
+
+# OS/Editor backups
+*~
+*.swp
+*.swo
