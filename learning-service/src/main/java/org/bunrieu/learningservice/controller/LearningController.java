@@ -1,14 +1,12 @@
 package org.bunrieu.learningservice.controller;
-
+import jakarta.ws.rs.DefaultValue;
 import lombok.RequiredArgsConstructor;
 import org.bunrieu.learningservice.dto.QuizQuestionResponse;
 import org.bunrieu.learningservice.entity.CharacterCard;
 import org.bunrieu.learningservice.repository.CharacterCardRepo;
 import org.bunrieu.learningservice.service.QuizService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -18,6 +16,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api/learning")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class LearningController {
     private final CharacterCardRepo repository;
     private final QuizService quizService;

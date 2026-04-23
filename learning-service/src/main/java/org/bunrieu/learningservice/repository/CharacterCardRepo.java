@@ -21,4 +21,12 @@ public interface CharacterCardRepo extends JpaRepository<CharacterCard, Long> {
     // Get 1 random character by rowName
     @Query(value = "SELECT * FROM character_cards WHERE row_name = :rowName ORDER BY RAND() LIMIT 1", nativeQuery = true)
     CharacterCard findRandomByRowName(@Param("rowName") String rowName);
+
+    // Get all unique row names for a type
+    @Query(value = "SELECT DISTINCT row_name FROM character_cards WHERE type = :type ORDER BY row_name", nativeQuery = true)
+    List<String> findDistinctRowNamesByType(@Param("type") String type);
+
+    // Get all characters grouped by row
+    @Query(value = "SELECT * FROM character_cards WHERE type = :type AND row_name = :rowName ORDER BY id", nativeQuery = true)
+    List<CharacterCard> findByTypeAndRowName(@Param("type") String type, @Param("rowName") String rowName);
 }
